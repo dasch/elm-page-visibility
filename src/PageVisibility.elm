@@ -2,6 +2,26 @@ module PageVisibility (VisibilityState (..), visibility, visible, hidden) where
 
 {-| Library for using the Page Visibility API.
 
+This example only runs the simulation while the document is visible:
+
+    import PageVisibility
+
+
+    model : Signal Model
+
+
+    simulation : Signal Model
+    simulation =
+      Signal.map2 simulate PageVisibility.visible model
+
+
+    simulate : Bool -> Model -> Model
+    simulate isVisible model =
+      if isVisible then
+        step model
+      else
+        model
+
 # Visibility Changes
 @docs VisibilityState, visibility, visible, hidden
 
