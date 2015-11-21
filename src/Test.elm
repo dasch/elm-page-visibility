@@ -15,3 +15,4 @@ showVisibility visibility =
     Visible -> "visible"
     Hidden -> "hidden"
     Prerender -> "prerender"
+    Unloaded -> "unloaded"

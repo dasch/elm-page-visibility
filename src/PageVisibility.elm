@@ -17,7 +17,7 @@ import Native.PageVisibility
 * `Prerender` when the document is loaded in the prerender mode and is not yet visible.
 
 -}
-type VisibilityState = Hidden | Visible | Prerender
+type VisibilityState = Visible | Hidden | Prerender | Unloaded
 
 
 {-| A signal of visibility changes.
@@ -35,6 +35,9 @@ visibility =
 
           "prerender" ->
             Prerender
+
+          "unloaded" ->
+            Unloaded
 
           _ ->
             -- crash hard here?
