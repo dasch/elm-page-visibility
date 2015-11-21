@@ -11,9 +11,10 @@ Elm.Native.PageVisibility.make = function(localRuntime) {
   var eventName = "visibilitychange"
   var NS = Elm.Native.Signal.make(localRuntime);
   var stream = NS.input(eventName, document.visibilityState);
+  var fallbackState = "visible";
 
   localRuntime.addListener([stream.id], document, eventName, function(e) {
-    localRuntime.notify(stream.id, document.visibilityState);
+    localRuntime.notify(stream.id, document.visibilityState || fallbackState);
   });
 
   return localRuntime.Native.PageVisibility.values = {
