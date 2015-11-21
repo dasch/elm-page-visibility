@@ -1,9 +1,9 @@
-module PageVisibility (VisibilityState (..), visibility) where
+module PageVisibility (VisibilityState (..), visibility, visible, hidden) where
 
 {-| Library for using the Page Visibility API.
 
 # Visibility Changes
-@docs VisibilityState, visibility
+@docs VisibilityState, visibility, visible, hidden
 
 -}
 
@@ -41,3 +41,17 @@ visibility =
             Visible
   in
       Signal.map mapVisibility Native.PageVisibility.visibility
+
+
+{-| A signal that is True when the page is visible.
+-}
+visible : Signal Bool
+visible =
+  Signal.map (\state -> state == Visible) visibility
+
+
+{-| A signal that is True when the page is hidden or still being rendered.
+-}
+hidden : Signal Bool
+hidden =
+  Signal.map (\state -> state /= Visible) visibility
