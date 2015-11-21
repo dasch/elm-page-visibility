@@ -40,7 +40,7 @@ visibility =
             -- crash hard here?
             Visible
   in
-      Signal.map mapVisibility Native.PageVisibility.visibility
+      Signal.map mapVisibility nativeVisibility
 
 
 {-| A signal that is True when the page is visible.
@@ -55,3 +55,7 @@ visible =
 hidden : Signal Bool
 hidden =
   Signal.map (\state -> state /= Visible) visibility
+
+
+nativeVisibility : Signal String
+nativeVisibility = Native.PageVisibility.visibility
