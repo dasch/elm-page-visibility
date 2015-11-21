@@ -35,6 +35,7 @@ import Native.PageVisibility
 * `Hidden` when the document is not visible at all on any screen.
 * `Visible` when the document is at least partially visible on at least one screen.
 * `Prerender` when the document is loaded in the prerender mode and is not yet visible.
+* `Unloaded` when the page is being unloaded from memory.
 
 -}
 type VisibilityState = Visible | Hidden | Prerender | Unloaded
