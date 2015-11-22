@@ -2,6 +2,9 @@
 
 Library for using the Page Visibility API in Elm.
 
+
+## Usage
+
 ```elm
 import PageVisibility
 

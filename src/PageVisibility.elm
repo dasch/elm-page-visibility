@@ -1,4 +1,4 @@
-module PageVisibility (VisibilityState (..), visibility, visible, hidden) where
+module PageVisibility (visible, hidden) where
 
 {-| Library for using the Page Visibility API.
 
@@ -23,7 +23,7 @@ This example only runs the simulation while the document is visible:
         model
 
 # Visibility Changes
-@docs VisibilityState, visibility, visible, hidden
+@docs visible, hidden
 
 -}
 

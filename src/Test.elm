@@ -3,16 +3,12 @@ import PageVisibility exposing (..)
 
 
 main =
-  Signal.foldp logState [] PageVisibility.visibility
+  Signal.foldp logState [] PageVisibility.visible
     |> Signal.map show
 
 
-logState state log = (showVisibility state) :: log
+logState visible log = (showVisibility visible) :: log
 
 
-showVisibility visibility =
-  case visibility of
-    Visible -> "visible"
-    Hidden -> "hidden"
-    Prerender -> "prerender"
-    Unloaded -> "unloaded"
+showVisibility visible =
+  if visible then "visible" else "hidden"
